@@ -36,10 +36,10 @@ export const options = {
   secret: process.env.NEXTAUTH_SECRET,
   // logger: { level: "debug" },
   pages: {
-    signIn: "auth/signin/page",
+    signIn: "auth/signin",
   },
   callbacks: {
-    async session({ session, token }) {
+    session: async ({ session, token }) => {
       session.user.username = session.user.name
         .split(" ")
         .join("")

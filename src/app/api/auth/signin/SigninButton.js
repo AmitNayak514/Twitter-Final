@@ -16,6 +16,7 @@ const SignInButton = ({ provider }) => {
           />
           <button
             onClick={(e) => {
+              e.preventDefault();
               signIn(provider.id, { callbackUrl: "/" });
             }}
             className="bg-red-400 rounded-lg p-3 text-white hover:bg-red-500"
