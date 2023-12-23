@@ -1,11 +1,8 @@
+"use client";
 import React from "react";
 import { getProviders, signIn } from "next-auth/react";
 import Image from "next/image";
-import SignInButton from "./SigninButton";
-
 const page = async () => {
-  const providers = await getProviders();
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="border p-8 flex items-center justify-center space-x-8 shadow-md bg-white">
@@ -16,12 +13,25 @@ const page = async () => {
             className="md:inline-flex object-cover md:w-44 rotate-6 h-80"
           />
         </div>
-        <div>
-          {Object.values(providers).map((provider) => (
-            <div key={provider.id} className="">
-              <SignInButton key={provider.id} provider={provider} />
-            </div>
-          ))}
+        <div className="text-center flex flex-col items-center">
+          <img
+            className={
+              "w-[10em] h-[10em] hoverEffect p-0 hover:bg-blue-100 xl:px-1"
+            }
+            src={
+              "https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
+            }
+            alt="twitter logo"
+            priority
+          ></img>
+          <button
+            onClick={() => {
+              signIn("google", { callbackUrl: "/" });
+            }}
+            className="bg-red-400 rounded-lg p-3 text-white hover:bg-red-500"
+          >
+            Sign in with Google
+          </button>
         </div>
       </div>
     </div>
