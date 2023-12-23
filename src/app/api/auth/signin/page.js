@@ -3,7 +3,7 @@ import { getProviders, signIn } from "next-auth/react";
 import Image from "next/image";
 import SignInButton from "./SigninButton";
 
-const SignIn = async () => {
+const page = async () => {
   const providers = await getProviders();
 
   return (
@@ -28,4 +28,4 @@ const SignIn = async () => {
   );
 };
 
-export default SignIn;
+export default page;
